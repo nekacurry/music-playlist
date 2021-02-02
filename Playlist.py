@@ -41,19 +41,20 @@ class Playlist:
     current_song = self.__first_song
     previous_song = None
 
+    
     while current_song != None:
 
       previous_song = current_song
       current_song = current_song.get_next_song()
 
       if current_song.get_title() == title:
-        if previous_song != None:
           previous_song.set_next_song(current_song.get_next_song())
-        else:
-          self.__first_song = current_song.get_next_song()
-        
-        print("Song removed!")
-        return True
+      
+      elif self.__first_song.get_title() == title:
+        self.__first_song = self.__first_song.get_next_song()
+
+      print("Song removed!")
+      return True
 
     print('Song not found')
     return False
