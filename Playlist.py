@@ -12,6 +12,7 @@ class Playlist:
     new_song = Song(title)
     new_song.set_next_song(self.__first_song)
     self.__first_song = new_song
+    print('Added!')
 
 
 
@@ -29,6 +30,7 @@ class Playlist:
         counter += 1
         current_song = current_song.get_next_song()
 
+    print('Song not found')
     return -1
 
 
@@ -49,9 +51,10 @@ class Playlist:
           previous_song.set_next_song(current_song.get_next_song())
         else:
           self.__first_song = current_song.get_next_song()
+        
         print("Song removed!")
         return True
-    
+
     print('Song not found')
     return False
       
